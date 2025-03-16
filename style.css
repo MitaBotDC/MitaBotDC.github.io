@@ -1,18 +1,21 @@
 :root {
-    --bg-color: #1a1a1a;
+    --bg-color: #121212;
     --text-color: #ffffff;
     --accent-color: #7289da;
-    --nav-bg: #2c2c2c;
+    --nav-bg: #1e1e1e;
+    --card-bg: #2c2c2c;
+    --hover-color: #5469a4;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', 'Arial', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -25,6 +28,7 @@ nav {
     width: 100%;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .nav-content {
@@ -37,25 +41,62 @@ nav {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: var(--accent-color);
+    text-decoration: none;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .nav-links {
     list-style: none;
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-links a {
     color: var(--text-color);
     text-decoration: none;
-    transition: color 0.3s;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
 }
 
 .nav-links a:hover {
     color: var(--accent-color);
+    background-color: rgba(114, 137, 218, 0.1);
+}
+
+.language-selector {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.language-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.3rem;
+    margin: 0 0.2rem;
+    opacity: 0.7;
+    border-radius: 4px;
+}
+
+.language-btn.active {
+    opacity: 1;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.language-btn:hover {
+    opacity: 1;
+    background-color: rgba(114, 137, 218, 0.1);
 }
 
 main {
@@ -65,59 +106,78 @@ main {
 
 .hero {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem 4rem;
+    background: linear-gradient(to bottom, rgba(30, 30, 30, 0.8), rgba(18, 18, 18, 0.9));
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin-bottom: 1rem;
     color: var(--accent-color);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .status {
     display: inline-block;
     background-color: var(--accent-color);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
     border-radius: 20px;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 2rem;
 }
 
 .text-content {
-    background-color: var(--nav-bg);
-    padding: 2rem;
+    background-color: var(--card-bg);
+    padding: 2.5rem;
     border-radius: 10px;
     margin-top: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .text-content h2 {
     color: var(--accent-color);
     margin: 1.5rem 0 1rem 0;
+    font-size: 1.8rem;
 }
 
 .text-content p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
 }
 
 .text-content ul {
     margin-left: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
 }
 
 .text-content ul li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.7rem;
+}
+
+.command-item {
+    background-color: rgba(114, 137, 218, 0.1);
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 0.8rem;
+    border-left: 3px solid var(--accent-color);
 }
 
 footer {
     background-color: var(--nav-bg);
     text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none;
 }
 
 @media (max-width: 768px) {
@@ -130,5 +190,9 @@ footer {
         flex-direction: column;
         text-align: center;
         gap: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
     }
 }

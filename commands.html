@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commands - Mita</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Highlight current page in navigation */
+        .nav-links li a.current {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        /* Flag language selector styles */
+        .flag-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .flag-icon {
+            width: 30px;
+            height: auto;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+            border: 2px solid transparent;
+        }
+
+        .flag-icon:hover {
+            transform: translateY(-2px);
+            opacity: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .flag-icon.active {
+            opacity: 1;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px rgba(114, 137, 218, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">Mita</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="lang-en">Home</a><a href="index.html" class="lang-tr hidden">Ana Sayfa</a></li>
+                <li><a href="commands.html" class="lang-en current">Commands</a><a href="commands.html" class="lang-tr hidden current">Komutlar</a></li>
+                <li><a href="tos.html" class="lang-en">Terms of Service</a><a href="tos.html" class="lang-tr hidden">Kullanım Koşulları</a></li>
+                <li><a href="privacy.html" class="lang-en">Privacy Policy</a><a href="privacy.html" class="lang-tr hidden">Gizlilik Politikası</a></li>
+                <li class="language-selector">
+                    <div class="flag-container">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English" class="flag-icon active" data-lang="en">
+                        <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe" class="flag-icon" data-lang="tr">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="content">
+            <h1 class="lang-en">Bot Commands</h1>
+            <h1 class="lang-tr hidden">Bot Komutları</h1>
+            <div class="text-content">
+                <h2 class="lang-en">User Commands</h2>
+                <h2 class="lang-tr hidden">Kullanıcı Komutları</h2>
+                <ul class="lang-en">
+                    <li class="command-item"><strong>/help & m!help</strong> - Displays a list of available commands</li>
+                    <li class="command-item"><strong>/botinfo & m!botinfo</strong> - Shows information about the bot</li>
+                    <li class="command-item"><strong>/ping & m!ping</strong> - Checks the bot's response time</li>
+                    <li class="command-item"><strong>/level [mention] & m!level [mention]</strong> - Shows your level or the level of the mentioned user</li>
+                    <li class="command-item"><strong>/ship & m!ship</strong> - Measures love percentage between users (no mention: random server member, 1 mention: you and mentioned user, 2 mentions: between the two mentioned users)</li>
+                    <li class="command-item"><strong>/stats [mention] & m!stats [mention]</strong> - Displays user statistics</li>
+                    <li class="command-item"><strong>/topmessage & m!topmessage</strong> - Shows the top message senders in the server</li>
+                    <li class="command-item"><strong>/toppartner & m!toppartner</strong> - Shows top partners (if partner system is enabled)</li>
+                    <li class="command-item"><strong>/topvoice & m!topvoice</strong> - Shows users with the most voice chat time</li>
+                </ul>
+                <ul class="lang-tr hidden">
+                    <li class="command-item"><strong>/help & m!help</strong> - Kullanılabilir komutların listesini gösterir</li>
+                    <li class="command-item"><strong>/botinfo & m!botinfo</strong> - Bot hakkında bilgi gösterir</li>
+                    <li class="command-item"><strong>/ping & m!ping</strong> - Botun yanıt süresini kontrol eder</li>
+                    <li class="command-item"><strong>/level [mention] & m!level [mention]</strong> - Kendi seviyenizi veya etiketlenen kullanıcının seviyesini gösterir</li>
+                    <li class="command-item"><strong>/ship & m!ship</strong> - Kullanıcılar arasındaki aşk yüzdesini ölçer (etiket yok: sunucudan rastgele biri, 1 etiket: siz ve etiketlenen kişi, 2 etiket: iki etiketlenen kişi arasında)</li>
+                    <li class="command-item"><strong>/stats [mention] & m!stats [mention]</strong> - Kullanıcı istatistiklerini gösterir</li>
+                    <li class="command-item"><strong>/topmessage & m!topmessage</strong> - Sunucudaki en çok mesaj gönderenleri gösterir</li>
+                    <li class="command-item"><strong>/toppartner & m!toppartner</strong> - En iyi partnerleri gösterir (partner sistemi etkinse)</li>
+                    <li class="command-item"><strong>/topvoice & m!topvoice</strong> - En çok sesli sohbet süresine sahip kullanıcıları gösterir</li>
+                </ul>
+
+                <h2 class="lang-en">Economy Commands</h2>
+                <h2 class="lang-tr hidden">Ekonomi Komutları</h2>
+                <ul class="lang-en">
+                    <li class="command-item"><strong>/daily & m!daily</strong> - Collects daily coin reward</li>
+                    <li class="command-item"><strong>/balance [mention] & m!balance [mention]</strong> - Shows your coin balance or the balance of the mentioned user</li>
+                    <li class="command-item"><strong>/blackjack [currency] & m!blackjack [currency]</strong> - Play blackjack with the specified bet amount</li>
+                    <li class="command-item"><strong>/coinflip [currency] & m!coinflip [currency]</strong> - Flip a coin with the specified bet amount</li>
+                    <li class="command-item"><strong>/mines [currency] [mines] & m!mines [currency] [mines]</strong> - Play the mines game with specified bet and number of mines</li>
+                    <li class="command-item"><strong>/slot [currency] & m!slot [currency]</strong> - Play the slot machine with the specified bet amount</li>
+                    <li class="command-item"><strong>/topbalance & m!topbalance</strong> - Shows the richest users in the server</li>
+                    <li class="command-item"><strong>/pay [mention] [amount] & m!pay [mention] [amount]</strong> - Send coins to another user</li>
+                </ul>
+                <ul class="lang-tr hidden">
+                    <li class="command-item"><strong>/daily & m!daily</strong> - Günlük coin ödülünü toplar</li>
+                    <li class="command-item"><strong>/balance [mention] & m!balance [mention]</strong> - Coin bakiyenizi veya etiketlenen kullanıcının bakiyesini gösterir</li>
+                    <li class="command-item"><strong>/blackjack [currency] & m!blackjack [currency]</strong> - Belirtilen bahis miktarıyla blackjack oyna</li>
+                    <li class="command-item"><strong>/coinflip [currency] & m!coinflip [currency]</strong> - Belirtilen bahis miktarıyla yazı tura at</li>
+                    <li class="command-item"><strong>/mines [currency] [mines] & m!mines [currency] [mines]</strong> - Belirtilen bahis ve mayın sayısıyla mayın oyunu oyna</li>
+                    <li class="command-item"><strong>/slot [currency] & m!slot [currency]</strong> - Belirtilen bahis miktarıyla slot makinesi oyna</li>
+                    <li class="command-item"><strong>/topbalance & m!topbalance</strong> - Sunucudaki en zengin kullanıcıları gösterir</li>
+                    <li class="command-item"><strong>/pay [mention] [amount] & m!pay [mention] [amount]</strong> - Başka bir kullanıcıya coin gönder</li>
+                </ul>
+
+                <h2 class="lang-en">Server Commands</h2>
+                <h2 class="lang-tr hidden">Sunucu Komutları</h2>
+                <ul class="lang-en">
+                    <li class="command-item"><strong>/language [language] & m!language [language]</strong> - Changes the bot's language for the server</li>
+                    <li class="command-item"><strong>/levelsystemsetting & m!levelsystemsetting</strong> - Configure the level system settings</li>
+                    <li class="command-item"><strong>/partner-system & m!partner-sistem</strong> - Configure the partner system settings</li>
+                    <li class="command-item"><strong>/rankrolesystem & m!rankrolesystem</strong> - Configure the rank role system settings</li>
+                    <li class="command-item"><strong>/welcomesystemsetting & m!welcomesystemsetting</strong> - Configure the welcome system settings</li>
+                </ul>
+                <ul class="lang-tr hidden">
+                    <li class="command-item"><strong>/language [language] & m!language [language]</strong> - Sunucu için botun dilini değiştirir</li>
+                    <li class="command-item"><strong>/levelsystemsetting & m!levelsystemsetting</strong> - Seviye sistemi ayarlarını yapılandır</li>
+                    <li class="command-item"><strong>/partner-system & m!partner-sistem</strong> - Partner sistemi ayarlarını yapılandır</li>
+                    <li class="command-item"><strong>/rankrolesystem & m!rankrolesystem</strong> - Rütbe rolü sistemi ayarlarını yapılandır</li>
+                    <li class="command-item"><strong>/welcomesystemsetting & m!welcomesystemsetting</strong> - Karşılama sistemi ayarlarını yapılandır</li>
+                </ul>
+
+                <p class="lang-en">Note: All commands can be used with either slash (/) or prefix (m!) format.</p>
+                <p class="lang-tr hidden">Not: Tüm komutlar hem eğik çizgi (/) hem de önek (m!) formatıyla kullanılabilir.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p class="lang-en">&copy; 2024 ShaXᵈᵇ. All rights reserved.</p>
+        <p class="lang-tr hidden">&copy; 2024 ShaXᵈᵇ. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

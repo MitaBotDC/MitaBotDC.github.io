@@ -4,54 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - Mita</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Highlight current page in navigation */
+        .nav-links li a.current {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        /* Flag language selector styles */
+        .flag-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .flag-icon {
+            width: 30px;
+            height: auto;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+            border: 2px solid transparent;
+        }
+
+        .flag-icon:hover {
+            transform: translateY(-2px);
+            opacity: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .flag-icon.active {
+            opacity: 1;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px rgba(114, 137, 218, 0.6);
+        }
+    </style>
 </head>
 <body>
     <nav>
         <div class="nav-content">
-            <div class="logo">Mita</div>
+            <a href="index.html" class="logo">Mita</a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="tos.html">Terms of Service</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="index.html" class="lang-en">Home</a><a href="index.html" class="lang-tr hidden">Ana Sayfa</a></li>
+                <li><a href="commands.html" class="lang-en">Commands</a><a href="commands.html" class="lang-tr hidden">Komutlar</a></li>
+                <li><a href="tos.html" class="lang-en current">Terms of Service</a><a href="tos.html" class="lang-tr hidden current">Kullanım Koşulları</a></li>
+                <li><a href="privacy.html" class="lang-en">Privacy Policy</a><a href="privacy.html" class="lang-tr hidden">Gizlilik Politikası</a></li>
+                <li class="language-selector">
+                    <div class="flag-container">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English" class="flag-icon active" data-lang="en">
+                        <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe" class="flag-icon" data-lang="tr">
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
 
     <main>
         <div class="content">
-            <h1>Terms of Service</h1>
+            <h1 class="lang-en">Terms of Service</h1>
+            <h1 class="lang-tr hidden">Kullanım Koşulları</h1>
             <div class="text-content">
-                <h2>1. Acceptance of Terms</h2>
-                <p>By accessing and using Mita, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                <h2 class="lang-en">1. Acceptance of Terms</h2>
+                <h2 class="lang-tr hidden">1. Koşulların Kabulü</h2>
+                <p class="lang-en">By accessing and using Mita, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                <p class="lang-tr hidden">Mita'ya erişerek ve kullanarak, bu anlaşmanın şartlarını ve hükümlerini kabul etmiş olursunuz.</p>
                 
-                <h2>2. Use License</h2>
-                <p>Permission is granted to temporarily use Mita for personal, non-commercial transitory purposes.</p>
+                <h2 class="lang-en">2. Use License</h2>
+                <h2 class="lang-tr hidden">2. Kullanım Lisansı</h2>
+                <p class="lang-en">Permission is granted to temporarily use Mita for personal, non-commercial transitory purposes.</p>
+                <p class="lang-tr hidden">Mita'yı kişisel, ticari olmayan geçici amaçlar için geçici olarak kullanma izni verilmiştir.</p>
                 
-                <h2>3. Disclaimer</h2>
-                <p>The materials on Mita are provided on an 'as is' basis.</p>
+                <h2 class="lang-en">3. Disclaimer</h2>
+                <h2 class="lang-tr hidden">3. Sorumluluk Reddi</h2>
+                <p class="lang-en">The materials on Mita are provided on an 'as is' basis.</p>
+                <p class="lang-tr hidden">Mita üzerindeki materyaller 'olduğu gibi' sağlanmaktadır.</p>
 
-                <!-- New sections -->
-                <h2>4. User Responsibilities</h2>
-                <p>Users must not abuse, harass, threaten, or impersonate others while using Mita. Any violation may result in immediate termination of service.</p>
+                <h2 class="lang-en">4. User Responsibilities</h2>
+                <h2 class="lang-tr hidden">4. Kullanıcı Sorumlulukları</h2>
+                <p class="lang-en">Users must not abuse, harass, threaten, or impersonate others while using Mita. Any violation may result in immediate termination of service.</p>
+                <p class="lang-tr hidden">Kullanıcılar, Mita'yı kullanırken başkalarına kötü davranmamalı, taciz etmemeli, tehdit etmemeli veya başkalarını taklit etmemelidir. Herhangi bir ihlal, hizmetin derhal sonlandırılmasına neden olabilir.</p>
 
-                <h2>5. Service Availability</h2>
-                <p>We strive to provide 24/7 service but do not guarantee uninterrupted access to Mita. Maintenance and updates may cause temporary downtime.</p>
+                <h2 class="lang-en">5. Service Availability</h2>
+                <h2 class="lang-tr hidden">5. Hizmet Kullanılabilirliği</h2>
+                <p class="lang-en">We strive to provide 24/7 service but do not guarantee uninterrupted access to Mita. Maintenance and updates may cause temporary downtime.</p>
+                <p class="lang-tr hidden">7/24 hizmet vermeye çalışıyoruz, ancak Mita'ya kesintisiz erişim garantisi vermiyoruz. Bakım ve güncellemeler geçici kesintilere neden olabilir.</p>
 
-                <h2>6. Age Restrictions</h2>
-                <p>Users must be at least 13 years old to use Mita, in compliance with Discord's Terms of Service.</p>
+                <h2 class="lang-en">6. Age Restrictions</h2>
+                <h2 class="lang-tr hidden">6. Yaş Kısıtlamaları</h2>
+                <p class="lang-en">Users must be at least 13 years old to use Mita, in compliance with Discord's Terms of Service.</p>
+                <p class="lang-tr hidden">Kullanıcılar, Discord'un Hizmet Şartları'na uygun olarak Mita'yı kullanmak için en az 13 yaşında olmalıdır.</p>
 
-                <h2>7. Modifications to Service</h2>
-                <p>We reserve the right to modify or discontinue Mita at any time without notice.</p>
+                <h2 class="lang-en">7. Modifications to Service</h2>
+                <h2 class="lang-tr hidden">7. Hizmette Değişiklikler</h2>
+                <p class="lang-en">We reserve the right to modify or discontinue Mita at any time without notice.</p>
+                <p class="lang-tr hidden">Mita'yı herhangi bir zamanda önceden bildirimde bulunmaksızın değiştirme veya sonlandırma hakkını saklı tutarız.</p>
 
-                <h2>8. Third-Party Services</h2>
-                <p>Mita may integrate with third-party services. Usage of such services is subject to their respective terms and conditions.</p>
+                <h2 class="lang-en">8. Third-Party Services</h2>
+                <h2 class="lang-tr hidden">8. Üçüncü Taraf Hizmetleri</h2>
+                <p class="lang-en">Mita may integrate with third-party services. Usage of such services is subject to their respective terms and conditions.</p>
+                <p class="lang-tr hidden">Mita, üçüncü taraf hizmetlerle entegre olabilir. Bu tür hizmetlerin kullanımı, ilgili hizmet şartlarına ve koşullarına tabidir.</p>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 ShaXᵈᵇ. All rights reserved.</p>
+        <p class="lang-en">&copy; 2024 ShaXᵈᵇ. All rights reserved.</p>
+        <p class="lang-tr hidden">&copy; 2024 ShaXᵈᵇ. Tüm hakları saklıdır.</p>
     </footer>
 
     <script src="script.js"></script>

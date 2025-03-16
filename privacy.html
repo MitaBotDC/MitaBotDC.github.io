@@ -4,63 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Mita</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Highlight current page in navigation */
+        .nav-links li a.current {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        /* Flag language selector styles */
+        .flag-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .flag-icon {
+            width: 30px;
+            height: auto;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+            border: 2px solid transparent;
+        }
+
+        .flag-icon:hover {
+            transform: translateY(-2px);
+            opacity: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .flag-icon.active {
+            opacity: 1;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px rgba(114, 137, 218, 0.6);
+        }
+    </style>
 </head>
 <body>
     <nav>
         <div class="nav-content">
-            <div class="logo">Mita</div>
+            <a href="index.html" class="logo">Mita</a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="tos.html">Terms of Service</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="index.html" class="lang-en">Home</a><a href="index.html" class="lang-tr hidden">Ana Sayfa</a></li>
+                <li><a href="commands.html" class="lang-en">Commands</a><a href="commands.html" class="lang-tr hidden">Komutlar</a></li>
+                <li><a href="tos.html" class="lang-en">Terms of Service</a><a href="tos.html" class="lang-tr hidden">Kullanım Koşulları</a></li>
+                <li><a href="privacy.html" class="lang-en current">Privacy Policy</a><a href="privacy.html" class="lang-tr hidden current">Gizlilik Politikası</a></li>
+                <li class="language-selector">
+                    <div class="flag-container">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English" class="flag-icon active" data-lang="en">
+                        <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe" class="flag-icon" data-lang="tr">
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
 
     <main>
         <div class="content">
-            <h1>Privacy Policy</h1>
+            <h1 class="lang-en">Privacy Policy</h1>
+            <h1 class="lang-tr hidden">Gizlilik Politikası</h1>
             <div class="text-content">
-                <h2>1. Information Collection</h2>
-                <p>We collect information that is necessary for the proper functioning of Mita.</p>
+                <h2 class="lang-en">1. Information Collection</h2>
+                <h2 class="lang-tr hidden">1. Bilgi Toplama</h2>
+                <p class="lang-en">We collect information that is necessary for the proper functioning of Mita.</p>
+                <p class="lang-tr hidden">Mita'nın düzgün çalışması için gerekli bilgileri topluyoruz.</p>
                 
-                <h2>2. Data Usage</h2>
-                <p>The collected data is used solely for improving bot functionality and user experience.</p>
+                <h2 class="lang-en">2. Data Usage</h2>
+                <h2 class="lang-tr hidden">2. Veri Kullanımı</h2>
+                <p class="lang-en">The collected data is used solely for improving bot functionality and user experience.</p>
+                <p class="lang-tr hidden">Toplanan veriler yalnızca bot işlevselliğini ve kullanıcı deneyimini iyileştirmek için kullanılır.</p>
                 
-                <h2>3. Data Protection</h2>
-                <p>We implement security measures to protect your information.</p>
+                <h2 class="lang-en">3. Data Protection</h2>
+                <h2 class="lang-tr hidden">3. Veri Koruma</h2>
+                <p class="lang-en">We implement security measures to protect your information.</p>
+                <p class="lang-tr hidden">Bilgilerinizi korumak için güvenlik önlemleri uyguluyoruz.</p>
 
-                <!-- New sections -->
-                <h2>4. Data Storage Duration</h2>
-                <p>We retain user data only for as long as necessary to provide our services. Users can request data deletion at any time.</p>
+                <h2 class="lang-en">4. Data Storage Duration</h2>
+                <h2 class="lang-tr hidden">4. Veri Saklama Süresi</h2>
+                <p class="lang-en">We retain user data only for as long as necessary to provide our services. Users can request data deletion at any time.</p>
+                <p class="lang-tr hidden">Kullanıcı verilerini yalnızca hizmetlerimizi sağlamak için gerekli olduğu sürece saklıyoruz. Kullanıcılar istedikleri zaman veri silme talebinde bulunabilirler.</p>
 
-                <h2>5. Information Sharing</h2>
-                <p>We do not sell, trade, or transfer your personal information to third parties without your explicit consent.</p>
+                <h2 class="lang-en">5. Information Sharing</h2>
+                <h2 class="lang-tr hidden">5. Bilgi Paylaşımı</h2>
+                <p class="lang-en">We do not sell, trade, or transfer your personal information to third parties without your explicit consent.</p>
+                <p class="lang-tr hidden">Açık izniniz olmadan kişisel bilgilerinizi üçüncü taraflara satmaz, takas etmez veya aktarmayız.</p>
 
-                <h2>6. User Rights</h2>
-                <p>Users have the right to:</p>
-                <ul>
+                <h2 class="lang-en">6. User Rights</h2>
+                <h2 class="lang-tr hidden">6. Kullanıcı Hakları</h2>
+                <p class="lang-en">Users have the right to:</p>
+                <p class="lang-tr hidden">Kullanıcıların şu haklara sahiptir:</p>
+                <ul class="lang-en">
                     <li>Access their personal data</li>
                     <li>Request data correction</li>
                     <li>Request data deletion</li>
                     <li>Withdraw consent at any time</li>
                 </ul>
+                <ul class="lang-tr hidden">
+                    <li>Kişisel verilerine erişim</li>
+                    <li>Veri düzeltme talebi</li>
+                    <li>Veri silme talebi</li>
+                    <li>İstediği zaman izni geri çekme</li>
+                </ul>
 
-                <h2>7. Cookies and Tracking</h2>
-                <p>Our website may use cookies to enhance user experience. Users can control cookie settings through their browser.</p>
+                <h2 class="lang-en">7. Cookies and Tracking</h2>
+                <h2 class="lang-tr hidden">7. Çerezler ve İzleme</h2>
+                <p class="lang-en">Our website may use cookies to enhance user experience. Users can control cookie settings through their browser.</p>
+                <p class="lang-tr hidden">Web sitemiz, kullanıcı deneyimini geliştirmek için çerezler kullanabilir. Kullanıcılar, tarayıcıları aracılığıyla çerez ayarlarını kontrol edebilirler.</p>
 
-                <h2>8. Changes to Privacy Policy</h2>
-                <p>We may update this privacy policy from time to time. Users will be notified of any significant changes.</p>
+                <h2 class="lang-en">8. Changes to Privacy Policy</h2>
+                <h2 class="lang-tr hidden">8. Gizlilik Politikasındaki Değişiklikler</h2>
+                <p class="lang-en">We may update this privacy policy from time to time. Users will be notified of any significant changes.</p>
+                <p class="lang-tr hidden">Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Kullanıcılar, önemli değişikliklerden haberdar edilecektir.</p>
 
-                <h2>9. Contact Information</h2>
-                <p>For any privacy-related questions or concerns, please contact us through Discord.</p>
+                <h2 class="lang-en">9. Contact Information</h2>
+                <h2 class="lang-tr hidden">9. İletişim Bilgileri</h2>
+                <p class="lang-en">For any privacy-related questions or concerns, please contact us through Discord.</p>
+                <p class="lang-tr hidden">Gizlilikle ilgili sorularınız veya endişeleriniz için lütfen Discord üzerinden bizimle iletişime geçin.</p>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 ShaXᵈᵇ. All rights reserved.</p>
+        <p class="lang-en">&copy; 2024 ShaXᵈᵇ. All rights reserved.</p>
+        <p class="lang-tr hidden">&copy; 2024 ShaXᵈᵇ. Tüm hakları saklıdır.</p>
     </footer>
 
     <script src="script.js"></script>

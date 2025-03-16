@@ -4,30 +4,262 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mita - Discord Bot</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Highlight current page in navigation */
+        .nav-links li a.current {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Home page specific styles */
+        .hero {
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(18, 18, 18, 0.95)), url('botbanner2.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Flag language selector styles */
+        .flag-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .flag-icon {
+            width: 30px;
+            height: auto;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+            border: 2px solid transparent;
+        }
+
+        .flag-icon:hover {
+            transform: translateY(-2px);
+            opacity: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .flag-icon.active {
+            opacity: 1;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px rgba(114, 137, 218, 0.6);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--accent-color), #a0b2ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(114, 137, 218, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 1rem auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(114, 137, 218, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(114, 137, 218, 0.5);
+            background-color: var(--hover-color);
+        }
+
+        .features {
+            padding: 5rem 2rem;
+            background-color: rgba(30, 30, 30, 0.7);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav>
         <div class="nav-content">
-            <div class="logo">Mita</div>
+            <a href="index.html" class="logo">Mita</a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="tos.html">Terms of Service</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="index.html" class="lang-en current">Home</a><a href="index.html" class="lang-tr hidden current">Ana Sayfa</a></li>
+                <li><a href="commands.html" class="lang-en">Commands</a><a href="commands.html" class="lang-tr hidden">Komutlar</a></li>
+                <li><a href="tos.html" class="lang-en">Terms of Service</a><a href="tos.html" class="lang-tr hidden">Kullanım Koşulları</a></li>
+                <li><a href="privacy.html" class="lang-en">Privacy Policy</a><a href="privacy.html" class="lang-tr hidden">Gizlilik Politikası</a></li>
+                <li class="language-selector">
+                    <div class="flag-container">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English" class="flag-icon active" data-lang="en">
+                        <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe" class="flag-icon" data-lang="tr">
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
 
     <main>
+        <!-- Hero Section -->
         <div class="hero">
             <h1>Mita</h1>
-            <div class="status">In Development</div>
-            <p>A powerful Discord bot coming soon...</p>
+            <div class="status lang-en">In Development</div>
+            <div class="status lang-tr hidden">Geliştirme Aşamasında</div>
+            <p class="lang-en">An all-in-one Discord bot with powerful moderation, economy, leveling, and fun features to enhance your server experience.</p>
+            <p class="lang-tr hidden">Sunucu deneyiminizi geliştirmek için güçlü moderasyon, ekonomi, seviye ve eğlence özellikleri sunan çok yönlü bir Discord botu.</p>
+            <a href="https://discord.com/oauth2/authorize?client_id=1342190588253962260&permissions=8&integration_type=0&scope=bot+applications.commands" class="cta-button lang-en">Add to Discord</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=1342190588253962260&permissions=8&integration_type=0&scope=bot+applications.commands" class="cta-button lang-tr hidden">Discord'a Ekle</a>
         </div>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2 class="section-title lang-en">Features</h2>
+            <h2 class="section-title lang-tr hidden">Özellikler</h2>
+            <p class="section-subtitle lang-en">Discover what makes Mita the perfect addition to your Discord server</p>
+            <p class="section-subtitle lang-tr hidden">Mita'yı Discord sunucunuz için mükemmel bir eklenti yapan özellikleri keşfedin</p>
+            
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="lang-en">Moderation</h3>
+                    <h3 class="lang-tr hidden">Moderasyon</h3>
+                    <p class="lang-en">Keep your server safe with powerful moderation tools and customizable settings.</p>
+                    <p class="lang-tr hidden">Güçlü moderasyon araçları ve özelleştirilebilir ayarlarla sunucunuzu güvende tutun.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 class="lang-en">Economy</h3>
+                    <h3 class="lang-tr hidden">Ekonomi</h3>
+                    <p class="lang-en">Engage your members with a fun economy system including games and rewards.</p>
+                    <p class="lang-tr hidden">Oyunlar ve ödüller içeren eğlenceli bir ekonomi sistemiyle üyelerinizi etkileşime geçirin.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="lang-en">Leveling</h3>
+                    <h3 class="lang-tr hidden">Seviye Sistemi</h3>
+                    <p class="lang-en">Reward active members with a customizable leveling system and role rewards.</p>
+                    <p class="lang-tr hidden">Özelleştirilebilir seviye sistemi ve rol ödülleriyle aktif üyeleri ödüllendirin.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-smile-beam"></i>
+                    </div>
+                    <h3 class="lang-en">Fun Commands</h3>
+                    <h3 class="lang-tr hidden">Eğlence Komutları</h3>
+                    <p class="lang-en">Keep your server entertaining with a variety of fun and interactive commands.</p>
+                    <p class="lang-tr hidden">Çeşitli eğlenceli ve interaktif komutlarla sunucunuzu eğlenceli tutun.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3 class="lang-en">Customization</h3>
+                    <h3 class="lang-tr hidden">Özelleştirme</h3>
+                    <p class="lang-en">Tailor the bot to your server's needs with extensive customization options.</p>
+                    <p class="lang-tr hidden">Kapsamlı özelleştirme seçenekleriyle botu sunucunuzun ihtiyaçlarına göre ayarlayın.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="lang-en">Multi-language</h3>
+                    <h3 class="lang-tr hidden">Çoklu Dil</h3>
+                    <p class="lang-en">Support for multiple languages to accommodate diverse communities.</p>
+                    <p class="lang-tr hidden">Farklı toplulukları desteklemek için çoklu dil desteği.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 ShaXᵈᵇ. All rights reserved.</p>
+        <p class="lang-en">&copy; 2024 ShaXᵈᵇ. All rights reserved.</p>
+        <p class="lang-tr hidden">&copy; 2024 ShaXᵈᵇ. Tüm hakları saklıdır.</p>
     </footer>
 
     <script src="script.js"></script>
