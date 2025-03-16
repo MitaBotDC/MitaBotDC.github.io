@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support the Developer - Mita</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Highlight current page in navigation */
+        .nav-links li a.current {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        /* Flag language selector styles */
+        .flag-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .flag-icon {
+            width: 30px;
+            height: auto;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+            border: 2px solid transparent;
+        }
+
+        .flag-icon:hover {
+            transform: translateY(-2px);
+            opacity: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .flag-icon.active {
+            opacity: 1;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px rgba(114, 137, 218, 0.6);
+        }
+
+        /* Support page specific styles */
+        .support-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .support-header {
+            margin-bottom: 3rem;
+        }
+
+        .support-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .support-header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .support-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .support-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .support-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .support-card p {
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .support-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #FFDD00;
+            color: #000000;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            gap: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .support-button:hover {
+            background-color: #FFEA00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .support-button img {
+            height: 28px;
+            width: auto;
+        }
+
+        .thank-you {
+            margin-top: 4rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">Mita</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="lang-en">Home</a><a href="index.html" class="lang-tr hidden">Ana Sayfa</a></li>
+                <li><a href="commands.html" class="lang-en">Commands</a><a href="commands.html" class="lang-tr hidden">Komutlar</a></li>
+                <li><a href="tos.html" class="lang-en">Terms of Service</a><a href="tos.html" class="lang-tr hidden">Kullanım Koşulları</a></li>
+                <li><a href="privacy.html" class="lang-en">Privacy Policy</a><a href="privacy.html" class="lang-tr hidden">Gizlilik Politikası</a></li>
+                <li><a href="support.html" class="lang-en current">Support the Dev</a><a href="support.html" class="lang-tr hidden current">Geliştiriciyi Destekle</a></li>
+                <li class="language-selector">
+                    <div class="flag-container">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English" class="flag-icon active" data-lang="en">
+                        <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe" class="flag-icon" data-lang="tr">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="support-container">
+            <div class="support-header">
+                <h1 class="lang-en">Support the Developer</h1>
+                <h1 class="lang-tr hidden">Geliştiriciyi Destekle</h1>
+                <p class="lang-en">Mita is a passion project created to enhance Discord communities. Your support helps keep the bot running and enables new features.</p>
+                <p class="lang-tr hidden">Mita, Discord topluluklarını geliştirmek için oluşturulmuş bir tutku projesidir. Desteğiniz botun çalışmasını sürdürmesine ve yeni özelliklerin eklenmesine yardımcı olur.</p>
+            </div>
+
+            <div class="support-options">
+                <div class="support-card">
+                    <h2 class="lang-en">Buy Me a Coffee</h2>
+                    <h2 class="lang-tr hidden">Bana Bir Kahve Ismarla</h2>
+                    <p class="lang-en">If you enjoy using Mita and want to show your appreciation, consider buying me a coffee! Your support motivates me to continue improving the bot.</p>
+                    <p class="lang-tr hidden">Mita'yı kullanmaktan keyif alıyorsanız ve takdirinizi göstermek istiyorsanız, bana bir kahve ısmarlayabilirsiniz! Desteğiniz, botu geliştirmeye devam etmem için beni motive ediyor.</p>
+                    <a href="https://buymeacoffee.com/shaxdb" target="_blank" class="support-button">
+                        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" class="bmc-logo">
+                        <span class="lang-en">Buy Me a Coffee</span>
+                        <span class="lang-tr hidden">Bana Bir Kahve Ismarla</span>
+                    </a>
+                </div>
+            </div>
+
+            <p class="thank-you lang-en">Thank you for your support! ❤️</p>
+            <p class="thank-you lang-tr hidden">Desteğiniz için teşekkürler! ❤️</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                <p class="lang-en">&copy; 2024 ShaXᵈᵇ. All rights reserved.</p>
+                <p class="lang-tr hidden">&copy; 2024 ShaXᵈᵇ. Tüm hakları saklıdır.</p>
+            </div>
+            <div class="support-link">
+                <a href="https://buymeacoffee.com/shaxdb" target="_blank" class="bmc-button">
+                    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" class="bmc-logo">
+                    <span class="lang-en">Support Me</span>
+                    <span class="lang-tr hidden">Bana Destek Ol</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

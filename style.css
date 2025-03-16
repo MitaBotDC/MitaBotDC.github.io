@@ -168,12 +168,53 @@ main {
     border-left: 3px solid var(--accent-color);
 }
 
+/* Footer styles */
 footer {
     background-color: var(--nav-bg);
     text-align: center;
     padding: 1.5rem;
     margin-top: 3rem;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.bmc-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #FFDD00;
+    color: #000000;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    gap: 0.5rem;
+}
+
+.bmc-button:hover {
+    background-color: #FFEA00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bmc-logo {
+    height: 24px;
+    width: auto;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 }
 
 .hidden {
