@@ -41,6 +41,117 @@
             border-color: var(--accent-color);
             box-shadow: 0 0 8px rgba(114, 137, 218, 0.6);
         }
+
+        /* Enhanced page title styling */
+        .commands-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .commands-title h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, var(--accent-color), #a0b2ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .commands-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), #a0b2ff);
+            border-radius: 3px;
+        }
+
+        /* Command categories navigation - new collapsible style */
+        .commands-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Category toggle styling */
+        .category-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            border: 1px solid rgba(114, 137, 218, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .category-toggle:hover {
+            background-color: rgba(114, 137, 218, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .category-toggle h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .toggle-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-icon.active {
+            transform: rotate(180deg);
+        }
+
+        /* Command content styling */
+        .command-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            margin-bottom: 0;
+        }
+
+        .command-content.active {
+            max-height: 2000px; /* Large enough to show all content */
+            margin-bottom: 2rem;
+        }
+
+        .command-list {
+            padding: 1rem 1.5rem;
+            background-color: rgba(44, 44, 44, 0.5);
+            border-radius: 8px;
+            margin-top: 0.5rem;
+        }
+
+        .command-item {
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .command-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .commands-title h1 {
+                font-size: 2rem;
+            }
+            
+            .category-toggle h2 {
+                font-size: 1.3rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -50,9 +161,8 @@
             <ul class="nav-links">
                 <li><a href="index.html" class="lang-en">Home</a><a href="index.html" class="lang-tr hidden">Ana Sayfa</a></li>
                 <li><a href="commands.html" class="lang-en current">Commands</a><a href="commands.html" class="lang-tr hidden current">Komutlar</a></li>
-                <li><a href="tos.html" class="lang-en">Terms of Service</a><a href="tos.html" class="lang-tr hidden">Kullanım Koşulları</a></li>
-                <li><a href="privacy.html" class="lang-en">Privacy Policy</a><a href="privacy.html" class="lang-tr hidden">Gizlilik Politikası</a></li>
-                <li><a href="credits.html" class="lang-en">Credits</a><a href="credits.html" class="lang-tr hidden">Krediler</a></li>
+                <!-- Removed TOS and Privacy links -->
+                <li><a href="credits.html" class="lang-en">Credits</a><a href="credits.html" class="lang-tr hidden">Katkıda Bulunanlar</a></li>
                 <li><a href="support.html" class="lang-en">Support the Dev</a><a href="support.html" class="lang-tr hidden">Geliştiriciyi Destekle</a></li>
                 <li class="language-selector">
                     <div class="flag-container">
@@ -66,128 +176,155 @@
 
     <main>
         <div class="content">
-            <h1 class="lang-en">Bot Commands</h1>
-            <h1 class="lang-tr hidden">Bot Komutları</h1>
-            <div class="text-content">
-                <h2 class="lang-en">User Commands</h2>
-                <h2 class="lang-tr hidden">Kullanıcı Komutları</h2>
-                <ul class="lang-en">
-                    <li class="command-item"><strong>/help & m!help</strong> - Displays a list of available commands</li>
-                    <li class="command-item"><strong>/botinfo & m!botinfo</strong> - Shows information about the bot</li>
-                    <li class="command-item"><strong>/ping & m!ping</strong> - Checks the bot's response time</li>
-                    <li class="command-item"><strong>/level [mention] & m!level [mention]</strong> - Shows your level or the level of the mentioned user</li>
-                    <li class="command-item"><strong>/ship & m!ship</strong> - Measures love percentage between users (no mention: random server member, 1 mention: you and mentioned user, 2 mentions: between the two mentioned users)</li>
-                    <li class="command-item"><strong>/stats [mention] & m!stats [mention]</strong> - Displays user statistics</li>
-                    <li class="command-item"><strong>/topmessage & m!topmessage</strong> - Shows the top message senders in the server</li>
-                    <li class="command-item"><strong>/toppartner & m!toppartner</strong> - Shows top partners (if partner system is enabled)</li>
-                    <li class="command-item"><strong>/topvoice & m!topvoice</strong> - Shows users with the most voice chat time</li>
-                </ul>
-                <ul class="lang-tr hidden">
-                    <li class="command-item"><strong>/help & m!help</strong> - Kullanılabilir komutların listesini gösterir</li>
-                    <li class="command-item"><strong>/botinfo & m!botinfo</strong> - Bot hakkında bilgi gösterir</li>
-                    <li class="command-item"><strong>/ping & m!ping</strong> - Botun yanıt süresini kontrol eder</li>
-                    <li class="command-item"><strong>/level [mention] & m!level [mention]</strong> - Kendi seviyenizi veya etiketlenen kullanıcının seviyesini gösterir</li>
-                    <li class="command-item"><strong>/ship & m!ship</strong> - Kullanıcılar arasındaki aşk yüzdesini ölçer (etiket yok: sunucudan rastgele biri, 1 etiket: siz ve etiketlenen kişi, 2 etiket: iki etiketlenen kişi arasında)</li>
-                    <li class="command-item"><strong>/stats [mention] & m!stats [mention]</strong> - Kullanıcı istatistiklerini gösterir</li>
-                    <li class="command-item"><strong>/topmessage & m!topmessage</strong> - Sunucudaki en çok mesaj gönderenleri gösterir</li>
-                    <li class="command-item"><strong>/toppartner & m!toppartner</strong> - En iyi partnerleri gösterir (partner sistemi etkinse)</li>
-                    <li class="command-item"><strong>/topvoice & m!topvoice</strong> - En çok sesli sohbet süresine sahip kullanıcıları gösterir</li>
-                </ul>
+            <!-- Updated title section -->
+            <div class="commands-title">
+                <h1 class="lang-en">Bot Commands</h1>
+                <h1 class="lang-tr hidden">Bot Komutları</h1>
             </div>
             
-            <div class="text-content">
-                <h2 class="lang-en">Economy Commands</h2>
-                <h2 class="lang-tr hidden">Ekonomi Komutları</h2>
-                <ul class="lang-en">
-                    <li class="command-item"><strong>/daily & m!daily</strong> - Collects daily coin reward</li>
-                    <li class="command-item"><strong>/balance [mention] & m!balance [mention]</strong> - Shows your coin balance or the balance of the mentioned user</li>
-                    <li class="command-item"><strong>/blackjack [currency] & m!blackjack [currency]</strong> - Play blackjack with the specified bet amount</li>
-                    <li class="command-item"><strong>/coinflip [currency] & m!coinflip [currency]</strong> - Flip a coin with the specified bet amount</li>
-                    <li class="command-item"><strong>/mines [currency] [mines] & m!mines [currency] [mines]</strong> - Play the mines game with specified bet and number of mines</li>
-                    <li class="command-item"><strong>/slot [currency] & m!slot [currency]</strong> - Play the slot machine with the specified bet amount</li>
-                    <li class="command-item"><strong>/topbalance & m!topbalance</strong> - Shows the richest users in the server</li>
-                    <li class="command-item"><strong>/pay [mention] [amount] & m!pay [mention] [amount]</strong> - Send coins to another user</li>
-                </ul>
-                <ul class="lang-tr hidden">
-                    <li class="command-item"><strong>/daily & m!daily</strong> - Günlük coin ödülünü toplar</li>
-                    <li class="command-item"><strong>/balance [mention] & m!balance [mention]</strong> - Coin bakiyenizi veya etiketlenen kullanıcının bakiyesini gösterir</li>
-                    <li class="command-item"><strong>/blackjack [currency] & m!blackjack [currency]</strong> - Belirtilen bahis miktarıyla blackjack oyna</li>
-                    <li class="command-item"><strong>/coinflip [currency] & m!coinflip [currency]</strong> - Belirtilen bahis miktarıyla yazı tura at</li>
-                    <li class="command-item"><strong>/mines [currency] [mines] & m!mines [currency] [mines]</strong> - Belirtilen bahis ve mayın sayısıyla mayın oyunu oyna</li>
-                    <li class="command-item"><strong>/slot [currency] & m!slot [currency]</strong> - Belirtilen bahis miktarıyla slot makinesi oyna</li>
-                    <li class="command-item"><strong>/topbalance & m!topbalance</strong> - Sunucudaki en zengin kullanıcıları gösterir</li>
-                    <li class="command-item"><strong>/pay [mention] [amount] & m!pay [mention] [amount]</strong> - Başka bir kullanıcıya coin gönder</li>
-                </ul>
-            </div>
-            
-            <div class="text-content">
-                <h2 class="lang-en">Server Commands</h2>
-                <h2 class="lang-tr hidden">Sunucu Komutları</h2>
-                <ul class="lang-en">
-                    <li class="command-item"><strong>/language [language] & m!language [language]</strong> - Changes the bot's language for the server</li>
-                    <li class="command-item"><strong>/levelsystemsetting & m!levelsystemsetting</strong> - Configure the level system settings</li>
-                    <li class="command-item"><strong>/partner-system & m!partner-sistem</strong> - Configure the partner system settings</li>
-                    <li class="command-item"><strong>/rankrolesystem & m!rankrolesystem</strong> - Configure the rank role system settings</li>
-                    <li class="command-item"><strong>/welcomesystemsetting & m!welcomesystemsetting</strong> - Configure the welcome system settings</li>
-                </ul>
-                <ul class="lang-tr hidden">
-                    <li class="command-item"><strong>/language [language] & m!language [language]</strong> - Sunucu için botun dilini değiştirir</li>
-                    <li class="command-item"><strong>/levelsystemsetting & m!levelsystemsetting</strong> - Seviye sistemi ayarlarını yapılandır</li>
-                    <li class="command-item"><strong>/partner-system & m!partner-sistem</strong> - Partner sistemi ayarlarını yapılandır</li>
-                    <li class="command-item"><strong>/rankrolesystem & m!rankrolesystem</strong> - Rütbe rolü sistemi ayarlarını yapılandır</li>
-                    <li class="command-item"><strong>/welcomesystemsetting & m!welcomesystemsetting</strong> - Karşılama sistemi ayarlarını yapılandır</li>
-                </ul>
-            </div>
-            
-            <div class="text-content">
-                <h2 class="lang-en">Fun Commands</h2>
-                <h2 class="lang-tr hidden">Eğlence Komutları</h2>
-                <ul class="lang-en">
-                    <li class="command-item"><strong>/baka [mention] & m!baka [mention]</strong> - Send a baka reaction to the mentioned user</li>
-                    <li class="command-item"><strong>/bang [mention] & m!bang [mention]</strong> - Send a bang reaction to the mentioned user</li>
-                    <li class="command-item"><strong>/blush [mention] & m!blush [mention]</strong> - Show a blushing reaction to the mentioned user</li>
-                    <li class="command-item"><strong>/cry [mention] & m!cry [mention]</strong> - Express sadness with a crying reaction</li>
-                    <li class="command-item"><strong>/dance [mention] & m!dance [mention]</strong> - Dance with or for the mentioned user</li>
-                    <li class="command-item"><strong>/facepalm [mention] & m!facepalm [mention]</strong> - Show disappointment with a facepalm reaction</li>
-                    <li class="command-item"><strong>/handhold [mention] & m!handhold [mention]</strong> - Hold hands with the mentioned user</li>
-                    <li class="command-item"><strong>/handshake [mention] & m!handshake [mention]</strong> - Shake hands with the mentioned user</li>
-                    <li class="command-item"><strong>/kiss [mention] & m!kiss [mention]</strong> - Kiss the mentioned user</li>
-                    <li class="command-item"><strong>/nod [mention] & m!nod [mention]</strong> - Nod in agreement to the mentioned user</li>
-                    <li class="command-item"><strong>/nope [mention] & m!nope [mention]</strong> - Express disagreement to the mentioned user</li>
-                    <li class="command-item"><strong>/pat [mention] & m!pat [mention]</strong> - Pat the mentioned user</li>
-                    <li class="command-item"><strong>/punch [mention] & m!punch [mention]</strong> - Punch the mentioned user</li>
-                    <li class="command-item"><strong>/slap [mention] & m!slap [mention]</strong> - Slap the mentioned user</li>
-                    <li class="command-item"><strong>/sleepy [mention] & m!sleepy [mention]</strong> - Show a sleepy reaction to the mentioned user</li>
-                    <li class="command-item"><strong>/smile [mention] & m!smile [mention]</strong> - Smile at the mentioned user</li>
-                    <li class="command-item"><strong>/smug [mention] & m!smug [mention]</strong> - Show a smug reaction to the mentioned user</li>
-                    <li class="command-item"><strong>/thinking [mention] & m!thinking [mention]</strong> - Display a thinking reaction</li>
-                    <li class="command-item"><strong>/wink [mention] & m!wink [mention]</strong> - Wink at the mentioned user</li>
-                    <li class="command-item"><strong>/waifu & m!waifu</strong> - Get a random anime waifu image</li>
-                    <li class="command-item"><strong>/husbando & m!husbando</strong> - Get a random anime husbando image</li>
-                </ul>
-                <ul class="lang-tr hidden">
-                    <li class="command-item"><strong>/baka [etiket] & m!baka [etiket]</strong> - Etiketlenen kullanıcıya baka tepkisi gönder</li>
-                    <li class="command-item"><strong>/bang [etiket] & m!bang [etiket]</strong> - Etiketlenen kullanıcıya bang tepkisi gönder</li>
-                    <li class="command-item"><strong>/blush [etiket] & m!blush [etiket]</strong> - Etiketlenen kullanıcıya utanma tepkisi göster</li>
-                    <li class="command-item"><strong>/cry [etiket] & m!cry [etiket]</strong> - Ağlama tepkisiyle üzüntü ifade et</li>
-                    <li class="command-item"><strong>/dance [etiket] & m!dance [etiket]</strong> - Etiketlenen kullanıcıyla veya onun için dans et</li>
-                    <li class="command-item"><strong>/facepalm [etiket] & m!facepalm [etiket]</strong> - Yüz avuçlama tepkisiyle hayal kırıklığı göster</li>
-                    <li class="command-item"><strong>/handhold [etiket] & m!handhold [etiket]</strong> - Etiketlenen kullanıcıyla el ele tut</li>
-                    <li class="command-item"><strong>/handshake [etiket] & m!handshake [etiket]</strong> - Etiketlenen kullanıcıyla el sıkış</li>
-                    <li class="command-item"><strong>/kiss [etiket] & m!kiss [etiket]</strong> - Etiketlenen kullanıcıyı öp</li>
-                    <li class="command-item"><strong>/nod [etiket] & m!nod [etiket]</strong> - Etiketlenen kullanıcıya onaylayarak başını salla</li>
-                    <li class="command-item"><strong>/nope [etiket] & m!nope [etiket]</strong> - Etiketlenen kullanıcıya anlaşmazlık ifade et</li>
-                    <li class="command-item"><strong>/pat [etiket] & m!pat [etiket]</strong> - Etiketlenen kullanıcının başını okşa</li>
-                    <li class="command-item"><strong>/punch [etiket] & m!punch [etiket]</strong> - Etiketlenen kullanıcıya yumruk at</li>
-                    <li class="command-item"><strong>/slap [etiket] & m!slap [etiket]</strong> - Etiketlenen kullanıcıya tokat at</li>
-                    <li class="command-item"><strong>/sleepy [etiket] & m!sleepy [etiket]</strong> - Etiketlenen kullanıcıya uykulu tepki göster</li>
-                    <li class="command-item"><strong>/smile [etiket] & m!smile [etiket]</strong> - Etiketlenen kullanıcıya gülümse</li>
-                    <li class="command-item"><strong>/smug [etiket] & m!smug [etiket]</strong> - Kendini beğenmiş bir tepki göster</li>
-                    <li class="command-item"><strong>/thinking [etiket] & m!thinking [etiket]</strong> - Düşünme tepkisi göster</li>
-                    <li class="command-item"><strong>/wink [etiket] & m!wink [etiket]</strong> - Etiketlenen kullanıcıya göz kırp</li>
-                    <li class="command-item"><strong>/waifu & m!waifu</strong> - Rastgele bir anime waifu resmi al</li>
-                    <li class="command-item"><strong>/husbando & m!husbando</strong> - Rastgele bir anime husbando resmi al</li>
-                </ul>
+            <!-- New collapsible command sections -->
+            <div class="commands-container">
+                <!-- User Commands Section -->
+                <div class="command-section">
+                    <div class="category-toggle" data-target="user-commands">
+                        <h2 class="lang-en">User Commands</h2>
+                        <h2 class="lang-tr hidden">Kullanıcı Komutları</h2>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div id="user-commands" class="command-content">
+                        <div class="command-list">
+                            <ul class="lang-en">
+                                <li class="command-item"><strong>/help & m!help</strong> - Displays a list of available commands</li>
+                                <li class="command-item"><strong>/botinfo & m!botinfo</strong> - Shows information about the bot</li>
+                                <li class="command-item"><strong>/ping & m!ping</strong> - Checks the bot's response time</li>
+                                <li class="command-item"><strong>/level [mention] & m!level [mention]</strong> - Shows your level or the level of the mentioned user</li>
+                                <li class="command-item"><strong>/ship & m!ship</strong> - Measures love percentage between users (no mention: random server member, 1 mention: you and mentioned user, 2 mentions: between the two mentioned users)</li>
+                                <li class="command-item"><strong>/stats [mention] & m!stats [mention]</strong> - Displays user statistics</li>
+                                <li class="command-item"><strong>/topmessage & m!topmessage</strong> - Shows the top message senders in the server</li>
+                                <li class="command-item"><strong>/toppartner & m!toppartner</strong> - Shows top partners (if partner system is enabled)</li>
+                                <li class="command-item"><strong>/topvoice & m!topvoice</strong> - Shows users with the most voice chat time</li>
+                            </ul>
+                            <ul class="lang-tr hidden">
+                                <li class="command-item"><strong>/help & m!help</strong> - Kullanılabilir komutların listesini gösterir</li>
+                                <li class="command-item"><strong>/botinfo & m!botinfo</strong> - Bot hakkında bilgi gösterir</li>
+                                <li class="command-item"><strong>/ping & m!ping</strong> - Botun yanıt süresini kontrol eder</li>
+                                <li class="command-item"><strong>/level [mention] & m!level [mention]</strong> - Kendi seviyenizi veya etiketlenen kullanıcının seviyesini gösterir</li>
+                                <li class="command-item"><strong>/ship & m!ship</strong> - Kullanıcılar arasındaki aşk yüzdesini ölçer (etiket yok: sunucudan rastgele biri, 1 etiket: siz ve etiketlenen kişi, 2 etiket: iki etiketlenen kişi arasında)</li>
+                                <li class="command-item"><strong>/stats [mention] & m!stats [mention]</strong> - Kullanıcı istatistiklerini gösterir</li>
+                                <li class="command-item"><strong>/topmessage & m!topmessage</strong> - Sunucudaki en çok mesaj gönderenleri gösterir</li>
+                                <li class="command-item"><strong>/toppartner & m!toppartner</strong> - En iyi partnerleri gösterir (partner sistemi etkinse)</li>
+                                <li class="command-item"><strong>/topvoice & m!topvoice</strong> - En çok sesli sohbet süresine sahip kullanıcıları gösterir</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Economy Commands Section -->
+                <div class="command-section">
+                    <div class="category-toggle" data-target="economy-commands">
+                        <h2 class="lang-en">Economy Commands</h2>
+                        <h2 class="lang-tr hidden">Ekonomi Komutları</h2>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div id="economy-commands" class="command-content">
+                        <div class="command-list">
+                            <ul class="lang-en">
+                                <li class="command-item"><strong>/daily & m!daily</strong> - Collects daily coin reward</li>
+                                <li class="command-item"><strong>/balance [mention] & m!balance [mention]</strong> - Shows your coin balance or the balance of the mentioned user</li>
+                                <li class="command-item"><strong>/blackjack [currency] & m!blackjack [currency]</strong> - Play blackjack with the specified bet amount</li>
+                                <li class="command-item"><strong>/coinflip [currency] & m!coinflip [currency]</strong> - Flip a coin with the specified bet amount</li>
+                                <li class="command-item"><strong>/mines [currency] [mines] & m!mines [currency] [mines]</strong> - Play the mines game with specified bet and number of mines</li>
+                                <li class="command-item"><strong>/slot [currency] & m!slot [currency]</strong> - Play the slot machine with the specified bet amount</li>
+                                <li class="command-item"><strong>/topbalance & m!topbalance</strong> - Shows the richest users in the server</li>
+                                <li class="command-item"><strong>/pay [mention] [amount] & m!pay [mention] [amount]</strong> - Send coins to another user</li>
+                            </ul>
+                            <ul class="lang-tr hidden">
+                                <li class="command-item"><strong>/daily & m!daily</strong> - Günlük coin ödülünü toplar</li>
+                                <li class="command-item"><strong>/balance [mention] & m!balance [mention]</strong> - Coin bakiyenizi veya etiketlenen kullanıcının bakiyesini gösterir</li>
+                                <li class="command-item"><strong>/blackjack [currency] & m!blackjack [currency]</strong> - Belirtilen bahis miktarıyla blackjack oyna</li>
+                                <li class="command-item"><strong>/coinflip [currency] & m!coinflip [currency]</strong> - Belirtilen bahis miktarıyla yazı tura at</li>
+                                <li class="command-item"><strong>/mines [currency] [mines] & m!mines [currency] [mines]</strong> - Belirtilen bahis ve mayın sayısıyla mayın oyunu oyna</li>
+                                <li class="command-item"><strong>/slot [currency] & m!slot [currency]</strong> - Belirtilen bahis miktarıyla slot makinesi oyna</li>
+                                <li class="command-item"><strong>/topbalance & m!topbalance</strong> - Sunucudaki en zengin kullanıcıları gösterir</li>
+                                <li class="command-item"><strong>/pay [mention] [amount] & m!pay [mention] [amount]</strong> - Başka bir kullanıcıya coin gönder</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Server Commands Section -->
+                <div class="command-section">
+                    <div class="category-toggle" data-target="server-commands">
+                        <h2 class="lang-en">Server Commands</h2>
+                        <h2 class="lang-tr hidden">Sunucu Komutları</h2>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div id="server-commands" class="command-content">
+                        <div class="command-list">
+                            <ul class="lang-en">
+                                <li class="command-item"><strong>/language [language] & m!language [language]</strong> - Changes the bot's language for the server</li>
+                                <li class="command-item"><strong>/levelsystemsetting & m!levelsystemsetting</strong> - Configure the level system settings</li>
+                                <li class="command-item"><strong>/partner-system & m!partner-sistem</strong> - Configure the partner system settings</li>
+                                <li class="command-item"><strong>/rankrolesystem & m!rankrolesystem</strong> - Configure the rank role system settings</li>
+                                <li class="command-item"><strong>/welcomesystemsetting & m!welcomesystemsetting</strong> - Configure the welcome system settings</li>
+                            </ul>
+                            <ul class="lang-tr hidden">
+                                <li class="command-item"><strong>/language [language] & m!language [language]</strong> - Sunucu için botun dilini değiştirir</li>
+                                <li class="command-item"><strong>/levelsystemsetting & m!levelsystemsetting</strong> - Seviye sistemi ayarlarını yapılandır</li>
+                                <li class="command-item"><strong>/partner-system & m!partner-sistem</strong> - Partner sistemi ayarlarını yapılandır</li>
+                                <li class="command-item"><strong>/rankrolesystem & m!rankrolesystem</strong> - Rütbe rolü sistemi ayarlarını yapılandır</li>
+                                <li class="command-item"><strong>/welcomesystemsetting & m!welcomesystemsetting</strong> - Karşılama sistemi ayarlarını yapılandır</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fun Commands Section -->
+                <div class="command-section">
+                    <div class="category-toggle" data-target="fun-commands">
+                        <h2 class="lang-en">Fun Commands</h2>
+                        <h2 class="lang-tr hidden">Eğlence Komutları</h2>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div id="fun-commands" class="command-content">
+                        <div class="command-list">
+                            <ul class="lang-en">
+                                <li class="command-item"><strong>/baka [mention] & m!baka [mention]</strong> - Send a baka reaction to the mentioned user</li>
+                                <li class="command-item"><strong>/bang [mention] & m!bang [mention]</strong> - Send a bang reaction to the mentioned user</li>
+                                <li class="command-item"><strong>/blush [mention] & m!blush [mention]</strong> - Show a blushing reaction to the mentioned user</li>
+                                <li class="command-item"><strong>/cry [mention] & m!cry [mention]</strong> - Show a crying reaction to the mentioned user</li>
+                                <li class="command-item"><strong>/cuddle [mention] & m!cuddle [mention]</strong> - Cuddle with the mentioned user</li>
+                                <li class="command-item"><strong>/dance [mention] & m!dance [mention]</strong> - Dance with the mentioned user</li>
+                                <li class="command-item"><strong>/feed [mention] & m!feed [mention]</strong> - Feed the mentioned user</li>
+                                <li class="command-item"><strong>/hug [mention] & m!hug [mention]</strong> - Hug the mentioned user</li>
+                                <li class="command-item"><strong>/kiss [mention] & m!kiss [mention]</strong> - Kiss the mentioned user</li>
+                                <li class="command-item"><strong>/pat [mention] & m!pat [mention]</strong> - Pat the mentioned user</li>
+                                <li class="command-item"><strong>/poke [mention] & m!poke [mention]</strong> - Poke the mentioned user</li>
+                                <li class="command-item"><strong>/slap [mention] & m!slap [mention]</strong> - Slap the mentioned user</li>
+                                <li class="command-item"><strong>/smile [mention] & m!smile [mention]</strong> - Smile at the mentioned user</li>
+                                <li class="command-item"><strong>/waifu & m!waifu</strong> - Get a random anime waifu image</li>
+                                <li class="command-item"><strong>/husbando & m!husbando</strong> - Get a random anime husbando image</li>
+                            </ul>
+                            <ul class="lang-tr hidden">
+                                <li class="command-item"><strong>/baka [etiket] & m!baka [etiket]</strong> - Etiketlenen kullanıcıya baka tepkisi gönder</li>
+                                <li class="command-item"><strong>/bang [etiket] & m!bang [etiket]</strong> - Etiketlenen kullanıcıya bang tepkisi gönder</li>
+                                <li class="command-item"><strong>/blush [etiket] & m!blush [etiket]</strong> - Etiketlenen kullanıcıya utanma tepkisi göster</li>
+                                <li class="command-item"><strong>/cry [etiket] & m!cry [etiket]</strong> - Etiketlenen kullanıcıya ağlama tepkisi göster</li>
+                                <li class="command-item"><strong>/cuddle [etiket] & m!cuddle [etiket]</strong> - Etiketlenen kullanıcıyla sarıl</li>
+                                <li class="command-item"><strong>/dance [etiket] & m!dance [etiket]</strong> - Etiketlenen kullanıcıyla dans et</li>
+                                <li class="command-item"><strong>/feed [etiket] & m!feed [etiket]</strong> - Etiketlenen kullanıcıyı besle</li>
+                                <li class="command-item"><strong>/hug [etiket] & m!hug [etiket]</strong> - Etiketlenen kullanıcıya sarıl</li>
+                                <li class="command-item"><strong>/kiss [etiket] & m!kiss [etiket]</strong> - Etiketlenen kullanıcıyı öp</li>
+                                <li class="command-item"><strong>/pat [etiket] & m!pat [etiket]</strong> - Etiketlenen kullanıcının başını okşa</li>
+                                <li class="command-item"><strong>/poke [etiket] & m!poke [etiket]</strong> - Etiketlenen kullanıcıyı dürt</li>
+                                <li class="command-item"><strong>/slap [etiket] & m!slap [etiket]</strong> - Etiketlenen kullanıcıya tokat at</li>
+                                <li class="command-item"><strong>/smile [etiket] & m!smile [etiket]</strong> - Etiketlenen kullanıcıya gülümse</li>
+                                <li class="command-item"><strong>/waifu & m!waifu</strong> - Rastgele bir anime waifu resmi al</li>
+                                <li class="command-item"><strong>/husbando & m!husbando</strong> - Rastgele bir anime husbando resmi al</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -195,8 +332,16 @@
     <footer>
         <div class="footer-content">
             <div class="copyright">
-                <p class="lang-en">&copy; 2024 ShaXᵈᵇ. All rights reserved.</p>
-                <p class="lang-tr hidden">&copy; 2024 ShaXᵈᵇ. Tüm hakları saklıdır.</p>
+                <p class="lang-en">&copy; 2025 ShaXᵈᵇ. All rights reserved.</p>
+                <p class="lang-tr hidden">&copy; 2025 ShaXᵈᵇ. Tüm hakları saklıdır.</p>
+            </div>
+            <!-- Add footer links -->
+            <div class="footer-links">
+                <a href="tos.html" class="lang-en">Terms of Service</a>
+                <a href="tos.html" class="lang-tr hidden">Kullanım Koşulları</a>
+                <span class="separator">|</span>
+                <a href="privacy.html" class="lang-en">Privacy Policy</a>
+                <a href="privacy.html" class="lang-tr hidden">Gizlilik Politikası</a>
             </div>
             <div class="support-link">
                 <a href="https://buymeacoffee.com/shaxdb" target="_blank" class="bmc-button">
@@ -209,5 +354,34 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Add this to handle the collapsible sections
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all category toggles
+            const toggles = document.querySelectorAll('.category-toggle');
+            
+            // Add click event to each toggle
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    // Get the target content element
+                    const targetId = this.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+                    
+                    // Toggle active class on content
+                    targetContent.classList.toggle('active');
+                    
+                    // Toggle arrow direction
+                    const icon = this.querySelector('.toggle-icon');
+                    icon.classList.toggle('active');
+                });
+            });
+            
+            // Open the first category by default
+            const firstToggle = document.querySelector('.category-toggle');
+            const firstContent = document.getElementById(firstToggle.getAttribute('data-target'));
+            firstContent.classList.add('active');
+            firstToggle.querySelector('.toggle-icon').classList.add('active');
+        });
+    </script>
 </body>
 </html>

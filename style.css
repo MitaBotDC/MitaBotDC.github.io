@@ -36,9 +36,29 @@ nav {
     max-width: 1300px; /* Increased from default */
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Changed from space-between to center */
     align-items: center;
     padding: 0 2rem;
+    gap: 3rem; /* Added gap between logo and nav links */
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center; /* Added to ensure links are centered */
 }
 
 .nav-links {
@@ -105,10 +125,58 @@ nav {
     background-color: rgba(114, 137, 218, 0.1);
 }
 
+/* Language selector dropdown styling */
 .language-selector {
+    position: relative;
+}
+
+.flag-container {
     display: flex;
+    gap: 8px;
     align-items: center;
-    margin-left: 1rem;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Initially hide non-active flags */
+.flag-container .flag-icon:not(.active) {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: var(--card-bg);
+    padding: 5px;
+    border-radius: 4px;
+    z-index: 100;
+}
+
+/* Show flags when container is clicked */
+.flag-container.open .flag-icon:not(.active) {
+    display: block;
+}
+
+.flag-icon {
+    width: 30px;
+    height: auto;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+    border: 2px solid transparent;
+}
+
+.flag-icon:hover {
+    transform: translateY(-2px);
+    opacity: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.flag-icon.active {
+    opacity: 1;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(114, 137, 218, 0.6);
 }
 
 .language-btn {
@@ -270,4 +338,25 @@ footer {
     .hero h1 {
         font-size: 3rem;
     }
+}
+
+/* Footer links styles */
+.footer-links {
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+.separator {
+    margin: 0 8px;
+    color: rgba(255, 255, 255, 0.5);
 }
