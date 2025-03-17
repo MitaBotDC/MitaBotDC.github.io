@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credits - Mita</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+                       /* Miside background styling */
+        .miside-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.63), rgba(18, 18, 18, 0.87)), url('misidegamelogo.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0);
+        }
+
+        .miside-content {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: rgba(30, 30, 30, 0.7);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .miside-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            border-bottom: none;
+        }
+
+        /* Miside content styling update */
+        .miside-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--accent-color), #a0b2ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: block; /* Changed from inline-block to block */
+            width: 100%;
+            text-align: center;
+        }
+        
+        /* Ensure language elements don't appear side by side */
+        .lang-en, .lang-tr {
+            display: block;
+            width: 100%;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        .miside-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .miside-content .credits-links {
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .miside-section {
+                padding: 3rem 1rem;
+            }
+            
+            .miside-content h3 {
+                font-size: 1.5rem;
+            }
+        }
+        /* Highlight current page in navigation */
+        .nav-links li a.current {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        /* Flag language selector styles */
+        .flag-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .flag-icon {
+            width: 30px;
+            height: auto;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+            border: 2px solid transparent;
+        }
+
+        .flag-icon:hover {
+            transform: translateY(-2px);
+            opacity: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .flag-icon.active {
+            opacity: 1;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 8px rgba(114, 137, 218, 0.6);
+        }
+
+        /* Credits page specific styles */
+        .credits-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .credits-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .credits-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .credits-header p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .credits-section {
+            margin-bottom: 3rem;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .credits-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            border-bottom: 2px solid rgba(114, 137, 218, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .credits-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .credits-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-right: 2rem;
+            border-radius: 8px;
+        }
+
+        .credits-info {
+            flex: 1;
+        }
+
+        .credits-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .credits-info p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .credits-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .credits-link {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            gap: 0.5rem;
+        }
+
+        .credits-link:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-2px);
+        }
+
+        .credits-link i {
+            font-size: 1.1rem;
+        }
+
+        .character-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .character-card {
+            background-color: rgba(30, 30, 30, 0.5);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .character-img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 0.8rem;
+        }
+
+        .character-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .character-role {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .credits-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .credits-logo {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+
+            .credits-links {
+                justify-content: center;
+            }
+
+            .character-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">Mita</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="lang-en">Home</a><a href="index.html" class="lang-tr hidden">Ana Sayfa</a></li>
+                <li><a href="commands.html" class="lang-en">Commands</a><a href="commands.html" class="lang-tr hidden">Komutlar</a></li>
+                <li><a href="tos.html" class="lang-en">Terms of Service</a><a href="tos.html" class="lang-tr hidden">Kullanım Koşulları</a></li>
+                <li><a href="privacy.html" class="lang-en">Privacy Policy</a><a href="privacy.html" class="lang-tr hidden">Gizlilik Politikası</a></li>
+                <li><a href="credits.html" class="lang-en current">Credits</a><a href="credits.html" class="lang-tr hidden current">Krediler</a></li>
+                <li><a href="support.html" class="lang-en">Support the Dev</a><a href="support.html" class="lang-tr hidden">Geliştiriciyi Destekle</a></li>
+                <li class="language-selector">
+                    <div class="flag-container">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="English" class="flag-icon active" data-lang="en">
+                        <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe" class="flag-icon" data-lang="tr">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="credits-container">
+            <div class="credits-header">
+                <h1 class="lang-en">Credits</h1>
+                <h1 class="lang-tr hidden">Krediler</h1>
+                <p class="lang-en">We would like to acknowledge and thank the following individuals and organizations that have contributed to Mita Bot.</p>
+                <p class="lang-tr hidden">Mita Bot'a katkıda bulunan aşağıdaki kişi ve kuruluşlara teşekkür ederiz.</p>
+            </div>
+
+            <div class="credits-section">
+                <div class="miside-section">
+                    <div class="miside-content">
+                        <h2 class="lang-en">Bot Name & Mascot</h2>
+                        <h2 class="lang-tr hidden">Bot İsmi & Maskotu</h2>
+                        <h3 class="lang-en">Miside Game</h3>
+                        <h3 class="lang-tr hidden">Miside Oyunu</h3>
+                        <p class="lang-en">The name and mascot for our Discord bot are inspired by the character "Mita" from the game "Miside" developed by AIHASTO. Multiple characters from the game are used within the bot's features and visuals.</p>
+                        <p class="lang-tr hidden">Discord botumuzun adı ve maskotu, AIHASTO tarafından geliştirilen "Miside" oyunundaki "Mita" karakterinden esinlenilmiştir. Oyundaki birden fazla karakter, botun özellikleri ve görselleri içinde kullanılmaktadır.</p>
+                        <div class="credits-links">
+                            <a href="https://store.steampowered.com/app/2527500/MiSide/" target="_blank" class="credits-link">
+                                <i class="fas fa-gamepad"></i>
+                                <span class="lang-en">Game Page</span>
+                                <span class="lang-tr hidden">Oyun Sayfası</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="credits-section">
+                <h2 class="lang-en">Game Developer</h2>
+                <h2 class="lang-tr hidden">Oyun Geliştiricisi</h2>
+                <div class="credits-item">
+                    <img src="aihasto.png" alt="AIHASTO Logo" class="credits-logo">
+                    <div class="credits-info">
+                        <h3>AIHASTO</h3>
+                        <p class="lang-en">AIHASTO is the developer of the "Miside" game that inspired our Discord bot. We would like to express our gratitude for their creative work that provided the characters and inspiration for Mita Bot.</p>
+                        <p class="lang-tr hidden">AIHASTO, Discord botumuza ilham veren "Miside" oyununun geliştiricisidir. Mita Bot için karakterleri ve ilhamı sağlayan yaratıcı çalışmaları için minnettarlığımızı ifade etmek isteriz.</p>
+                        <div class="credits-links">
+                            <a href="https://discord.gg/aihasto" target="_blank" class="credits-link">
+                                <i class="fas fa-globe"></i>
+                                <span class="lang-en">Developer Discord Server</span>
+                                <span class="lang-tr hidden">Geliştirici Discord Sunucusu</span>
+                            </a>
+                            <a href="https://x.com/aihasto" target="_blank" class="credits-link">
+                                <i class="fab fa-twitter"></i>
+                                <span class="lang-en">Social Media</span>
+                                <span class="lang-tr hidden">Sosyal Medya</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="credits-section">
+                <h2 class="lang-en">Bot Development</h2>
+                <h2 class="lang-tr hidden">Bot Geliştirme</h2>
+                <div class="credits-item">
+                    <img src="shaxdb.png" alt="ShaXᵈᵇ Logo" class="credits-logo">
+                    <div class="credits-info">
+                        <h3>ShaXᵈᵇ</h3>
+                        <p class="lang-en">Mita Discord Bot was developed by ShaXᵈᵇ. The bot is designed to enhance Discord server experiences with various features including moderation, economy, leveling, and fun commands.</p>
+                        <p class="lang-tr hidden">Mita Discord Bot, ShaXᵈᵇ tarafından geliştirilmiştir. Bot, moderasyon, ekonomi, seviye sistemi ve eğlence komutları dahil olmak üzere çeşitli özelliklerle Discord sunucu deneyimlerini geliştirmek için tasarlanmıştır.</p>
+                        <div class="credits-links">
+                            <a href="https://buymeacoffee.com/shaxdb" target="_blank" class="credits-link">
+                                <i class="fas fa-coffee"></i>
+                                <span class="lang-en">Support</span>
+                                <span class="lang-tr hidden">Destek</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                <p class="lang-en">&copy; 2024 ShaXᵈᵇ. All rights reserved.</p>
+                <p class="lang-tr hidden">&copy; 2024 ShaXᵈᵇ. Tüm hakları saklıdır.</p>
+            </div>
+            <div class="support-link">
+                <a href="https://buymeacoffee.com/shaxdb" target="_blank" class="bmc-button">
+                    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" class="bmc-logo">
+                    <span class="lang-en">Support Me</span>
+                    <span class="lang-tr hidden">Bana Destek Ol</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

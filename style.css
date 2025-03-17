@@ -31,13 +31,47 @@ nav {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Navigation styles update */
 .nav-content {
-    max-width: 1200px;
+    max-width: 1300px; /* Increased from default */
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem; /* Increased gap between menu items */
+}
+
+.nav-links li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+    padding: 0.5rem 0.8rem; /* Add padding around links */
+}
+
+/* Responsive navigation adjustments */
+@media (max-width: 1024px) {
+    .nav-content {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .logo {
+        margin-bottom: 1rem;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
 }
 
 .logo {
