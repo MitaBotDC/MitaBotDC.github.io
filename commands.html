@@ -115,13 +115,13 @@
 
         /* Command content styling */
         .command-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-            margin-bottom: 0;
+            display: none;
+            margin-bottom: 2rem;
         }
 
         .command-content.active {
+            display: block;
+        
             max-height: 2000px; /* Large enough to show all content */
             margin-bottom: 2rem;
         }
@@ -189,7 +189,7 @@
                     <div class="category-toggle" data-target="user-commands">
                         <h2 class="lang-en">User Commands</h2>
                         <h2 class="lang-tr hidden">Kullanıcı Komutları</h2>
-                        <span class="toggle-icon">▼</span>
+                        <span class="toggle-icon">►</span>
                     </div>
                     <div id="user-commands" class="command-content">
                         <div class="command-list">
@@ -360,6 +360,17 @@
             // Get all category toggles
             const toggles = document.querySelectorAll('.category-toggle');
             
+            // Set all sections to closed with ► icon
+            toggles.forEach(toggle => {
+                const targetId = toggle.getAttribute('data-target');
+                const targetContent = document.getElementById(targetId);
+                targetContent.classList.remove('active');
+                toggle.querySelector('.toggle-icon').textContent = '►';
+            });
+            
+            // Remove the code that opens the first section
+            // No longer opening User Commands by default
+            
             // Add click event to each toggle
             toggles.forEach(toggle => {
                 toggle.addEventListener('click', function() {
@@ -372,15 +383,13 @@
                     
                     // Toggle arrow direction
                     const icon = this.querySelector('.toggle-icon');
-                    icon.classList.toggle('active');
+                    if (targetContent.classList.contains('active')) {
+                        icon.textContent = '▼';
+                    } else {
+                        icon.textContent = '►';
+                    }
                 });
             });
-            
-            // Open the first category by default
-            const firstToggle = document.querySelector('.category-toggle');
-            const firstContent = document.getElementById(firstToggle.getAttribute('data-target'));
-            firstContent.classList.add('active');
-            firstToggle.querySelector('.toggle-icon').classList.add('active');
         });
     </script>
 </body>
