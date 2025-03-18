@@ -19,80 +19,53 @@
             gap: 8px;
             align-items: center;
         }
-
+        
         .flag-icon {
-            width: 30px;
+            width: 24px;
             height: auto;
-            border-radius: 4px;
             cursor: pointer;
-            transition: all 0.3s ease;
             opacity: 0.6;
-            border: 2px solid transparent;
+            transition: opacity 0.3s;
         }
-
-        .flag-icon:hover {
-            transform: translateY(-2px);
-            opacity: 1;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
+        
         .flag-icon.active {
             opacity: 1;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 8px rgba(114, 137, 218, 0.6);
         }
-
-        /* Enhanced page title styling */
+        
+        /* Commands page specific styles */
         .commands-title {
             text-align: center;
             margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
+        }
+        
+        .commands-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .command-section {
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background-color: var(--card-bg);
+            cursor: pointer;
             position: relative;
         }
         
         .commands-title h1 {
+            color: var(--accent-color);
             font-size: 2.5rem;
-            background: linear-gradient(90deg, var(--accent-color), #a0b2ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
             margin-bottom: 0.5rem;
         }
         
-        .commands-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-color), #a0b2ff);
-            border-radius: 3px;
-        }
-
-        /* Command categories navigation - new collapsible style */
-        .commands-container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        /* Category toggle styling */
-        .category-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            cursor: pointer;
-            border: 1px solid rgba(114, 137, 218, 0.2);
-            transition: all 0.3s ease;
-        }
-
         .category-toggle:hover {
             background-color: rgba(114, 137, 218, 0.1);
             border-color: var(--accent-color);
@@ -103,54 +76,60 @@
             font-size: 1.5rem;
             color: var(--accent-color);
         }
-
-        .toggle-icon {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .toggle-icon.active {
-            transform: rotate(180deg);
-        }
-
-        /* Command content styling */
-        .command-content {
-            display: none;
-            margin-bottom: 2rem;
-        }
-
-        .command-content.active {
-            display: block;
         
-            max-height: 2000px; /* Large enough to show all content */
-            margin-bottom: 2rem;
+        .toggle-icon {
+            font-size: 1.2rem;
+            color: var(--accent-color);
         }
-
+        
+        .command-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: var(--card-bg);
+        }
+        
+        .command-content.active {
+            max-height: 2000px;
+            transition: max-height 0.5s ease-in;
+        }
+        
         .command-list {
-            padding: 1rem 1.5rem;
-            background-color: rgba(44, 44, 44, 0.5);
-            border-radius: 8px;
-            margin-top: 0.5rem;
+            padding: 1.5rem;
         }
-
+        
+        .command-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
         .command-item {
             margin-bottom: 0.8rem;
             line-height: 1.5;
         }
-
-        .command-item:last-child {
-            margin-bottom: 0;
+        
+        .command-item strong {
+            color: var(--accent-color);
         }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .commands-title h1 {
-                font-size: 2rem;
-            }
-            
-            .category-toggle h2 {
-                font-size: 1.3rem;
-            }
+        
+        /* Added styling for command notes */
+        .command-note {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background-color: rgba(114, 137, 218, 0.1);
+            border-left: 3px solid var(--accent-color);
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .command-note p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .command-note strong {
+            color: var(--accent-color);
         }
     </style>
 </head>
@@ -176,7 +155,7 @@
     </nav>
 
     <main>
-        <div class="content">
+        <div class="container">
             <!-- Updated title section -->
             <div class="commands-title">
                 <h1 class="lang-en">Bot Commands</h1>
@@ -233,7 +212,7 @@
                     <div class="category-toggle" data-target="economy-commands">
                         <h2 class="lang-en">Economy Commands</h2>
                         <h2 class="lang-tr hidden">Ekonomi Komutları</h2>
-                        <span class="toggle-icon">▼</span>
+                        <span class="toggle-icon">►</span>
                     </div>
                     <div id="economy-commands" class="command-content">
                         <div class="command-list">
@@ -266,7 +245,7 @@
                     <div class="category-toggle" data-target="server-commands">
                         <h2 class="lang-en">Server Commands</h2>
                         <h2 class="lang-tr hidden">Sunucu Komutları</h2>
-                        <span class="toggle-icon">▼</span>
+                        <span class="toggle-icon">►</span>
                     </div>
                     <div id="server-commands" class="command-content">
                         <div class="command-list">
@@ -276,6 +255,7 @@
                                 <li class="command-item"><strong>/partner-system & m!partner-sistem</strong> - Configure the partner system settings</li>
                                 <li class="command-item"><strong>/rankrolesystem & m!rankrolesystem</strong> - Configure the rank role system settings</li>
                                 <li class="command-item"><strong>/welcomesystemsetting & m!welcomesystemsetting</strong> - Configure the welcome system settings</li>
+                                <li class="command-item"><strong>/serverinfo & m!serverinfo</strong> - Displays information about the server</li>
                             </ul>
                             <ul class="lang-tr hidden">
                                 <li class="command-item"><strong>/language [language] & m!language [language]</strong> - Sunucu için botun dilini değiştirir</li>
@@ -283,6 +263,7 @@
                                 <li class="command-item"><strong>/partner-system & m!partner-sistem</strong> - Partner sistemi ayarlarını yapılandır</li>
                                 <li class="command-item"><strong>/rankrolesystem & m!rankrolesystem</strong> - Rütbe rolü sistemi ayarlarını yapılandır</li>
                                 <li class="command-item"><strong>/welcomesystemsetting & m!welcomesystemsetting</strong> - Karşılama sistemi ayarlarını yapılandır</li>
+                                <li class="command-item"><strong>/serverinfo & m!serverinfo</strong> - Sunucu hakkında bilgi gösterir</li>
                             </ul>
                         </div>
                     </div>
@@ -293,7 +274,7 @@
                     <div class="category-toggle" data-target="fun-commands">
                         <h2 class="lang-en">Fun Commands</h2>
                         <h2 class="lang-tr hidden">Eğlence Komutları</h2>
-                        <span class="toggle-icon">▼</span>
+                        <span class="toggle-icon">►</span>
                     </div>
                     <div id="fun-commands" class="command-content">
                         <div class="command-list">
@@ -354,6 +335,40 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Moderation Commands Section -->
+                <div class="command-section">
+                    <div class="category-toggle" data-target="moderation-commands">
+                        <h2 class="lang-en">Moderation Commands</h2>
+                        <h2 class="lang-tr hidden">Moderasyon Komutları</h2>
+                        <span class="toggle-icon">►</span>
+                    </div>
+                    <div id="moderation-commands" class="command-content">
+                        <div class="command-list">
+                            <ul class="lang-en">
+                                <li class="command-item"><strong>/clear [amount] & m!clear [amount]</strong> - Delete a specified number of messages from the channel</li>
+                                <li class="command-item"><strong>/kick [mention] [reason] & m!kick [mention] [reason]</strong> - Kick a user from the server with an optional reason</li>
+                                <li class="command-item"><strong>/timeout [mention] [duration] [reason] & m!timeout [mention] [duration] [reason]</strong> - Timeout a user for a specified duration with an optional reason</li>
+                                <li class="command-item"><strong>/untimeout [mention] & m!untimeout [mention]</strong> - Remove timeout from a user</li>
+                                <li class="command-item"><strong>/ban [mention] [reason] & m!ban [mention] [reason]</strong> - Ban a user from the server with an optional reason</li>
+                                <li class="command-item"><strong>/unban [user ID] & m!unban [user ID]</strong> - Unban a user from the server using their ID</li>
+                            </ul>
+                            <ul class="lang-tr hidden">
+                                <li class="command-item"><strong>/clear [miktar] & m!clear [miktar]</strong> - Kanaldan belirtilen sayıda mesajı sil</li>
+                                <li class="command-item"><strong>/kick [etiket] [sebep] & m!kick [etiket] [sebep]</strong> - Bir kullanıcıyı isteğe bağlı bir sebeple sunucudan at</li>
+                                <li class="command-item"><strong>/timeout [etiket] [süre] [sebep] & m!timeout [etiket] [süre] [sebep]</strong> - Bir kullanıcıyı belirtilen süre boyunca zaman aşımına al</li>
+                                <li class="command-item"><strong>/untimeout [etiket] & m!untimeout [etiket]</strong> - Bir kullanıcının zaman aşımını kaldır</li>
+                                <li class="command-item"><strong>/ban [etiket] [sebep] & m!ban [etiket] [sebep]</strong> - Bir kullanıcıyı isteğe bağlı bir sebeple sunucudan yasakla</li>
+                                <li class="command-item"><strong>/unban [kullanıcı ID] & m!unban [kullanıcı ID]</strong> - Bir kullanıcının ID'sini kullanarak sunucudaki yasağını kaldır</li>
+                            </ul>
+                            <!-- Added note about permissions -->
+                            <div class="command-note">
+                                <p class="lang-en"><strong>Note:</strong> Moderation commands require appropriate Discord permissions to use. Users must have the corresponding permission roles (e.g., Kick Members, Ban Members, Manage Messages) to execute these commands.</p>
+                                <p class="lang-tr hidden"><strong>Not:</strong> Moderasyon komutlarını kullanmak için uygun Discord izinleri gereklidir. Kullanıcıların bu komutları çalıştırmak için ilgili izin rollerine (örn. Üyeleri At, Üyeleri Yasakla, Mesajları Yönet) sahip olması gerekir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -373,55 +388,83 @@
                 <a href="privacy.html" class="lang-tr hidden">Gizlilik Politikası</a>
                 <span class="separator">|</span>
                 <a href="https://discord.gg/mitabot" target="_blank" class="lang-en">Discord Server</a>
+                <a href="https://discord.gg/mitabot" target="_blank" class="lang-en">Discord Server</a>
                 <a href="https://discord.gg/mitabot" target="_blank" class="lang-tr hidden">Discord Sunucusu</a>
-            </div>
-            <div class="support-link">
-                <a href="https://buymeacoffee.com/shaxdb" target="_blank" class="bmc-button">
-                    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" class="bmc-logo">
-                    <span class="lang-en">Support Me</span>
-                    <span class="lang-tr hidden">Bana Destek Ol</span>
-                </a>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
     <script>
-        // Add this to handle the collapsible sections
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all category toggles
-            const toggles = document.querySelectorAll('.category-toggle');
-            
-            // Set all sections to closed with ► icon
-            toggles.forEach(toggle => {
+        // Toggle command sections
+        document.querySelectorAll('.category-toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
                 const targetId = toggle.getAttribute('data-target');
-                const targetContent = document.getElementById(targetId);
-                targetContent.classList.remove('active');
-                toggle.querySelector('.toggle-icon').textContent = '►';
+                const content = document.getElementById(targetId);
+                content.classList.toggle('active');
+                
+                // Update toggle icon
+                const icon = toggle.querySelector('.toggle-icon');
+                if (content.classList.contains('active')) {
+                    icon.textContent = '▼';
+                } else {
+                    icon.textContent = '►';
+                }
+            });
+        });
+        
+        // Flag container toggle functionality
+        const flagContainer = document.querySelector('.flag-container');
+        flagContainer.addEventListener('click', function(e) {
+            this.classList.toggle('open');
+            e.stopPropagation();
+        });
+        
+        // Close flag container when clicking elsewhere
+        document.addEventListener('click', function() {
+            flagContainer.classList.remove('open');
+        });
+        
+        // Language switcher - Updated to match other pages
+        function setLanguage(language) {
+            // Get all flag icons
+            const flagIcons = document.querySelectorAll('.flag-icon');
+            
+            // Update active flag
+            flagIcons.forEach(flag => {
+                if (flag.getAttribute('data-lang') === language) {
+                    flag.classList.add('active');
+                } else {
+                    flag.classList.remove('active');
+                }
             });
             
-            // Remove the code that opens the first section
-            // No longer opening User Commands by default
-            
-            // Add click event to each toggle
-            toggles.forEach(toggle => {
-                toggle.addEventListener('click', function() {
-                    // Get the target content element
-                    const targetId = this.getAttribute('data-target');
-                    const targetContent = document.getElementById(targetId);
-                    
-                    // Toggle active class on content
-                    targetContent.classList.toggle('active');
-                    
-                    // Toggle arrow direction
-                    const icon = this.querySelector('.toggle-icon');
-                    if (targetContent.classList.contains('active')) {
-                        icon.textContent = '▼';
-                    } else {
-                        icon.textContent = '►';
-                    }
-                });
+            // Show/hide elements based on language
+            document.querySelectorAll('.lang-en, .lang-tr').forEach(element => {
+                element.classList.add('hidden');
             });
+            
+            document.querySelectorAll('.lang-' + language).forEach(element => {
+                element.classList.remove('hidden');
+            });
+            
+            // Save language preference
+            localStorage.setItem('preferredLanguage', language);
+        }
+        
+        // Add click event to flag icons
+        document.querySelectorAll('.flag-icon').forEach(flag => {
+            flag.addEventListener('click', () => {
+                const lang = flag.getAttribute('data-lang');
+                setLanguage(lang);
+            });
+        });
+        
+        // Load saved language preference on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('preferredLanguage');
+            if (savedLanguage) {
+                setLanguage(savedLanguage);
+            }
         });
     </script>
 </body>
