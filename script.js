@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const language = this.getAttribute('data-lang');
             setLanguage(language);
             
+            // Save language preference to localStorage
+            localStorage.setItem('preferredLanguage', language);
+            
             // Close the dropdown after selection
             if (flagContainer) {
                 flagContainer.classList.remove('open');
@@ -36,10 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Set initial language based on browser preference or default to English
-    const userLang = navigator.language || navigator.userLanguage;
-    const initialLang = userLang.startsWith('tr') ? 'tr' : 'en';
-    setLanguage(initialLang);
+    // Get saved language from localStorage or default to English
+    const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+    setLanguage(savedLanguage);
     
     // Toggle command sections if they exist (for commands page)
     const toggles = document.querySelectorAll('.category-toggle');
@@ -48,12 +50,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('data-target');
             const targetContent = document.getElementById(targetId);
             
-            if (targetContent.style.display === 'none' || targetContent.style.display === '') {
-                targetContent.style.display = 'block';
-                this.querySelector('.toggle-icon').textContent = '▼';
-            } else {
-                targetContent.style.display = 'none';
-                this.querySelector('.toggle-icon').textContent = '►';
+            // Toggle the content visibility
+            if (targetContent) {
+                targetContent.classList.toggle('expanded');
+                
+                // Toggle the arrow icon
+                const icon = this.querySelector('.toggle-icon');
+                if (icon) {
+                    icon.textContent = targetContent.classList.contains('expanded') ? '▼' : '►';
+                }
             }
         });
     });
